@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="./img/icon (2).png">
+  <title>Ficha de Anamnese - Pedro Eduardo Personal Trainer</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Força todos os ícones a serem pretos */
+    i, .fa, .fas, .far, .fal, .fab {
+      color: inherit !important;
+    }
+
+    :root {
+      --primary-color: #000000;
+      --primary-dark: #1a1a1a;
+      --primary-light: #333333;
+      --text-dark: #000000;
+      --text-medium: #333333;
+      --text-light: #666666;
+      --bg-light: #f5f5f5;
+      --bg-white: #ffffff;
+      --border-color: #d0d0d0;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-white);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+      padding: 50px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .logo-container {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 25px;
+    }
+
+    .logo {
+      max-width: 280px;
+      height: auto;
+      filter: drop-shadow(0 4px 12px rgba(255,255,255,0.2));
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .header h1 {
+      color: var(--bg-white);
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .header p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      margin-top: 10px;
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Form Section */
+    .form-wrapper {
+      padding: 50px 40px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title i {
+      color: #000000 !important;
+      font-size: 1.3rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 35px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 500;
+      color: var(--text-medium);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    label i {
+      color: #000000 !important;
+      font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="date"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      transition: var(--transition);
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--primary-color);
+      background: var(--bg-white);
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Checkbox and Radio Groups */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: var(--bg-light);
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .option-item:hover {
+      border-color: var(--primary-color);
+      background: rgba(0, 0, 0, 0.03);
+      transform: translateX(4px);
+    }
+
+    .option-item input[type="checkbox"],
+    .option-item input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: var(--primary-color);
+    }
+
+    .option-item label {
+      margin: 0;
+      cursor: pointer;
+      font-weight: 400;
+      flex: 1;
+    }
+
+    .option-item input[type="text"] {
+      margin-top: 8px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+    }
+
+    /* Submit Button */
+    .submit-container {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+      color: white;
+      border: none;
+      padding: 16px 60px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(135deg, #333333 0%, #000000 100%);
+    }
+
+    .submit-btn:active {
+      transform: translateY(-1px);
+    }
+
+    .submit-btn i {
+      color: #ffffff !important;
+      font-size: 1.2rem;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #000000 0%, #0d0d0d 100%);
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 20px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.5rem;
+      transition: var(--transition);
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+    }
+
+    .social-link:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-text {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    .footer-text strong {
+      color: white;
+      font-weight: 500;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      text-align: center;
+      animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        border-radius: 16px;
+      }
+
+      .header {
+        padding: 35px 20px;
+      }
+
+      .header h1 {
+        font-size: 1.6rem;
+      }
+
+      .logo {
+        max-width: 220px;
+      }
+
+      .form-wrapper {
+        padding: 30px 20px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+      }
+
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .submit-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      footer {
+        padding: 30px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 1.4rem;
+      }
+
+      .logo {
+        max-width: 180px;
+      }
+
+      .submit-btn {
+        padding: 14px 40px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo-container">
+        <img src="./img/logo.png" alt="Pedro Eduardo Personal Trainer" class="logo">
+      </div>
+      <h1>Ficha de Anamnese</h1>
+      <p>Pedro Eduardo - CREF12/PE: 023186-G/PE </p>
+    </div>
+
+    <!-- Form -->
+    <div class="form-wrapper">
+      <div id="successMessage" class="success-message">
+        <i class="fas fa-check-circle"></i> Formulário enviado com sucesso! Em breve entraremos em contato.
+      </div>
+
+      <form id="anamneseForm" action="https://formspree.io/f/mvgrqebw" method="post">
+        
+        <!-- Dados Pessoais -->
+        <div class="section-title">
+          <i class="fas fa-user"></i>
+          Dados Pessoais
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label><i class="fas fa-id-card"></i> Nome completo *</label>
+            <input type="text" name="nome" required placeholder="Digite seu nome completo">
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-calendar"></i> Data de nascimento *</label>
+            <input type="date" name="nascimento" required>
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-hashtag"></i> Idade *</label>
+            <input type="number" name="idade" required placeholder="Ex: 25" min="1" max="120">
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" name="email" placeholder="seu@email.com">
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-weight"></i> Peso atual (kg)</label>
+            <input type="number" name="peso" step="0.1" placeholder="Ex: 75.5" min="1">
+          </div>
+        </div>
+
+        <!-- Objetivos -->
+        <div class="section-title">
+          <i class="fas fa-bullseye"></i>
+          Objetivos
+        </div>
+
+        <div class="form-group full-width">
+          <label>Selecione seus objetivos principais:</label>
+          <div class="options-grid">
+            <div class="option-item">
+              <input type="checkbox" name="objetivo" value="Hipertrofia" id="obj1">
+              <label for="obj1">Hipertrofia</label>
+            </div>
+            <div class="option-item">
+              <input type="checkbox" name="objetivo" value="Emagrecimento" id="obj2">
+              <label for="obj2">Emagrecimento</label>
+            </div>
+            <div class="option-item">
+              <input type="checkbox" name="objetivo" value="Condicionamento" id="obj3">
+              <label for="obj3">Condicionamento</label>
+            </div>
+            <div class="option-item">
+              <input type="checkbox" name="objetivo" value="Fortalecimento" id="obj4">
+              <label for="obj4">Fortalecimento</label>
+            </div>
+            <div class="option-item">
+              <input type="checkbox" name="objetivo" value="Reabilitação" id="obj5">
+              <label for="obj5">Reabilitação</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label><i class="fas fa-plus"></i> Outros objetivos</label>
+          <input type="text" name="objetivo_outros" placeholder="Descreva outros objetivos específicos">
+        </div>
+
+        <!-- Histórico de Atividades -->
+        <div class="section-title">
+          <i class="fas fa-dumbbell"></i>
+          Histórico de Atividades Físicas
+        </div>
+
+        <div class="form-group full-width">
+          <label>Já praticou atividade física anteriormente?</label>
+          <div class="options-grid">
+            <div class="option-item">
+              <input type="radio" name="atividade" value="Sim" id="ativ1">
+              <label for="ativ1">Sim</label>
+            </div>
+            <div class="option-item">
+              <input type="radio" name="atividade" value="Não" id="ativ2">
+              <label for="ativ2">Não</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label><i class="fas fa-running"></i> Quais atividades?</label>
+            <input type="text" name="atividade_quais" placeholder="Ex: Musculação, corrida, natação">
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-clock"></i> Por quanto tempo?</label>
+            <input type="text" name="atividade_tempo" placeholder="Ex: 6 meses, 2 anos">
+          </div>
+        </div>
+
+        <!-- Planejamento de Treino -->
+        <div class="section-title">
+          <i class="fas fa-calendar-check"></i>
+          Planejamento de Treino
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label><i class="fas fa-hourglass-half"></i> Prazo para alcançar objetivos</label>
+            <input type="text" name="tempo_treino" placeholder="Ex: 3 meses, 6 meses, 1 ano">
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-calendar-week"></i> Frequência semanal de treinos</label>
+            <select name="frequencia">
+              <option value="">Selecione</option>
+              <option value="3">3x por semana</option>
+              <option value="4">4x por semana</option>
+              <option value="5">5x por semana</option>
+              <option value="6">6x por semana</option>
+              <option value="7">7x por semana</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Saúde e Condições Médicas -->
+        <div class="section-title">
+          <i class="fas fa-heartbeat"></i>
+          Saúde e Condições Médicas
+        </div>
+
+        <div class="form-group full-width">
+          <label><i class="fas fa-pills"></i> Toma algum medicamento contínuo?</label>
+          <input type="text" name="remedio" placeholder="Se sim, qual(is)?">
+        </div>
+
+        <div class="form-group full-width">
+          <label>Possui alguma condição de saúde?</label>
+          <div class="options-grid">
+            <div class="option-item">
+              <input type="checkbox" name="doenca" value="Hipertensão" id="doenca1">
+              <label for="doenca1">Hipertensão</label>
+            </div>
+            <div class="option-item">
+              <input type="checkbox" name="doenca" value="Diabetes" id="doenca2">
+              <label for="doenca2">Diabetes</label>
+            </div>
+            <div class="option-item">
+              <input type="checkbox" name="doenca" value="Cardíaco" id="doenca3">
+              <label for="doenca3">Problemas cardíacos</label>
+            </div>
+            <div class="option-item">
+              <input type="checkbox" name="doenca" value="Respiratório" id="doenca4">
+              <label for="doenca4">Problemas respiratórios</label>
+            </div>
+            <div class="option-item">
+              <input type="checkbox" name="doenca" value="Hérnia" id="doenca5">
+              <label for="doenca5">Hérnia</label>
+            </div>
+            <div class="option-item">
+              <input type="checkbox" name="doenca" value="Articular" id="doenca6">
+              <label for="doenca6">Problemas articulares</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label><i class="fas fa-map-marker-alt"></i> Local da hérnia (se aplicável)</label>
+            <input type="text" name="hernia_local" placeholder="Ex: Lombar, cervical">
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-map-marker-alt"></i> Local dos problemas articulares (se aplicável)</label>
+            <input type="text" name="articular_local" placeholder="Ex: Joelho, ombro">
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label><i class="fas fa-comment-medical"></i> Observações adicionais</label>
+          <textarea name="observacoes" placeholder="Alguma informação adicional que considere importante para seu treino?"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="submit-container">
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i>
+            Enviar Ficha de Anamnese
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="social-icons">
+        <a href="https://instagram.com/_pedroeduard0" target="_blank" class="social-link" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/5581986975496" target="_blank" class="social-link" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+      <p class="footer-text">
+        <strong>@_pedroeduard0</strong> | Contato: <strong>(81) 98697-5496</strong>
+      </p>
+      <p class="footer-text" style="margin-top: 10px; font-size: 0.85rem;">
+        © 2025 Site desenvolvido por Naiane Barbosa - Desenvolvedora Web
+        <br>
+        <img src="./img/logo_naiane.png" alt="Naiane Barbosa - Desenvolvedora Web" style="height: 70px; width: auto;" />
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // Form submission handling
+    const form = document.getElementById('anamneseForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(event) {
+      // Validação adicional pode ser adicionada aqui
+      console.log('Formulário enviado!');
+    });
+
+    // Smooth scroll para o topo após envio (opcional)
+    window.addEventListener('load', function() {
+      if (window.location.hash === '#success') {
+        successMessage.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    // Animação de entrada dos elementos
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section-title, .form-group').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
