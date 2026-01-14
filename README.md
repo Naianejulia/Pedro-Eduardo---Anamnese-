@@ -1,12 +1,12 @@
 ![Ficha de Anamnese - Pedro Eduardo](https://res.cloudinary.com/dkzhaw7kw/image/upload/v1762520095/Captura_de_tela_2025-11-07_095309_b5mv1m.png)
 
-# 🏋️‍♂️ Ficha de Anamnese — Pedro Eduardo Personal Trainer
+#  Ficha de Anamnese — Pedro Eduardo Personal Trainer
 
 > **Versão 2025** — Formulário moderno e responsivo para coleta de informações de alunos, com foco em usabilidade, estética e performance.
 
 ---
 
-## 🎨 Destaques do Design
+##  Destaques do Design
 
 - ✅ **Interface Moderna e Profissional** — Layout clean com gradientes suaves e fontes elegantes (Poppins)
 - ✅ **Identidade Visual Mantida** — Logo oficial “PE” preservada no topo
@@ -16,44 +16,44 @@
 
 ---
 
-## 🧩 Estrutura do Formulário
+##  Estrutura do Formulário
 
 O formulário é dividido em **5 seções organizadas logicamente** para facilitar o preenchimento:
 
-1. **🧍‍♂️ Dados Pessoais**  
+1. ** Dados Pessoais**  
    Nome, data de nascimento, idade, email e peso atual.
-2. **🎯 Objetivos**  
+2. ** Objetivos**  
    Foco principal do aluno (emagrecimento, hipertrofia, condicionamento, etc.).
-3. **🏃‍♀️ Histórico de Atividades Físicas**  
+3. ** Histórico de Atividades Físicas**  
    Frequência, tipos de exercício e nível de experiência.
-4. **📅 Planejamento de Treino**  
+4. ** Planejamento de Treino**  
    Preferências de horário e dias da semana.
-5. **❤️ Saúde e Condições Médicas**  
+5. ** Saúde e Condições Médicas**  
    Questões sobre doenças, restrições e observações gerais.
 
 ---
 
-## 📱 Experiência do Usuário (UX)
+##  Experiência do Usuário (UX)
 
-- 💡 **Feedback Visual**: Efeitos de hover e foco em todos os inputs  
-- 🧠 **Acessibilidade**: Labels descritivas e suporte total à navegação por teclado  
-- ⚡ **Performance**: CSS leve com variáveis e transições otimizadas  
-- 📲 **Mobile First**: Perfeito para smartphones, tablets e desktops  
-- 🧾 **Validação HTML5**: Campos obrigatórios marcados com “*” e placeholders explicativos
-
----
-
-## ⚙️ Funcionalidades Extras
-
-- 🗒️ Campo de **observações** para informações adicionais  
-- 📅 **Dropdown de frequência** para dias de treino  
-- ✅ **Checkboxes com emojis** para respostas rápidas e visuais  
-- 📨 Integração com **Formspree** (`endpoint: mvgrqebw`)  
-- 🌐 **Footer aprimorado** com ícones de redes sociais e efeitos hover
+- **Feedback Visual**: Efeitos de hover e foco em todos os inputs  
+- **Acessibilidade**: Labels descritivas e suporte total à navegação por teclado  
+- **Performance**: CSS leve com variáveis e transições otimizadas  
+- **Mobile First**: Perfeito para smartphones, tablets e desktops  
+- **Validação HTML5**: Campos obrigatórios marcados com “*” e placeholders explicativos
 
 ---
 
-## 💻 Tecnologias Utilizadas
+## Funcionalidades Extras
+
+- Campo de **observações** para informações adicionais  
+- **Dropdown de frequência** para dias de treino  
+- **Checkboxes com emojis** para respostas rápidas e visuais  
+- Integração com **Formspree** (`endpoint: mvgrqebw`)  
+- **Footer aprimorado** com ícones de redes sociais e efeitos hover
+
+---
+
+##  Tecnologias Utilizadas
 
 | Tecnologia | Função |
 |-------------|--------|
@@ -66,7 +66,7 @@ O formulário é dividido em **5 seções organizadas logicamente** para facilit
 
 ---
 
-## 🎯 Responsividade
+##  Responsividade
 
 | Dispositivo | Layout |
 |--------------|--------|
@@ -75,15 +75,15 @@ O formulário é dividido em **5 seções organizadas logicamente** para facilit
 | **Mobile** (<480px) | Coluna única adaptada |
 
 
-📧 Contato
+ Contato
 Pedro Eduardo — Personal Trainer
 📍 CREF12/PE: 023186-G/PE
 📱 WhatsApp: (81) 98697-5496 
 📸 Instagram: @_pedroeduard0
 
-👩‍💻 Desenvolvimento
+ Desenvolvimento
 Site desenvolvido por Naiane Barbosa — Desenvolvedora Web
-💼 Design e Front-end personalizados para profissionais de saúde e fitness.
+ Design e Front-end personalizados para profissionais de saúde e fitness.
 
 © 2025 — Todos os direitos reservados.
 Ficha de Anamnese — Pedro Eduardo Personal Trainer
