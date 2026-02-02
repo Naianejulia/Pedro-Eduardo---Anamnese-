@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="./img/icon (2).png">
+  <link rel="icon" href="icon-novo.png">
   <title>Ficha de Anamnese - Pedro Eduardo Personal Trainer</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,6 @@
       box-sizing: border-box;
     }
 
-    /* Força todos os ícones a serem pretos */
     i, .fa, .fas, .far, .fal, .fab {
       color: inherit !important;
     }
@@ -440,7 +439,7 @@
     <!-- Header -->
     <div class="header">
       <div class="logo-container">
-        <img src="./img/logo.png" alt="Pedro Eduardo Personal Trainer" class="logo">
+        <img src="logo-nova.png" alt="Pedro Eduardo Personal Trainer" class="logo">
       </div>
       <h1>Ficha de Anamnese</h1>
       <p>Pedro Eduardo - CREF12/PE: 023186-G/PE </p>
@@ -452,7 +451,7 @@
         <i class="fas fa-check-circle"></i> Formulário enviado com sucesso! Em breve entraremos em contato.
       </div>
 
-      <form id="anamneseForm" action="https://formspree.io/f/mvgrqebw" method="post">
+      <form id="anamneseForm">
         
         <!-- Dados Pessoais -->
         <div class="section-title">
@@ -579,6 +578,11 @@
               <option value="7">7x por semana</option>
             </select>
           </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-clock"></i> Tempo estimativo por treino</label>
+            <input type="text" name="tempo_estimativo_treino" placeholder="Ex: 30’, 1hora">
+          </div>
         </div>
 
         <!-- Saúde e Condições Médicas -->
@@ -665,50 +669,76 @@
       <p class="footer-text" style="margin-top: 10px; font-size: 0.85rem;">
         © 2025 Site desenvolvido por Naiane Barbosa - Desenvolvedora Web
         <br>
-        <img src="./img/logo_naiane.png" alt="Naiane Barbosa - Desenvolvedora Web" style="height: 70px; width: auto;" />
+        <img src="Nai - Dev - Logo2.png" alt="Naiane Barbosa - Desenvolvedora Web" style="height: 70px; width: auto;" />
       </p>
     </footer>
   </div>
 
   <script>
-    // Form submission handling
-    const form = document.getElementById('anamneseForm');
-    const successMessage = document.getElementById('successMessage');
+const form = document.getElementById('anamneseForm');
+const successMessage = document.getElementById('successMessage');
 
-    form.addEventListener('submit', function(event) {
-      // Validação adicional pode ser adicionada aqui
-      console.log('Formulário enviado!');
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(form);
+
+  const payload = {
+    nome: formData.get('nome'),
+    nascimento: formData.get('nascimento'),
+    idade: formData.get('idade') ? Number(formData.get('idade')) : null,
+    email: formData.get('email') || null,
+    peso: formData.get('peso') ? Number(formData.get('peso')) : null,
+
+    objetivos: formData.getAll('objetivo'),
+    objetivoOutros: formData.get('objetivo_outros') || null,
+
+    praticouAtividade: formData.get('atividade'),
+    atividadeQuais: formData.get('atividade_quais') || null,
+    atividadeTempo: formData.get('atividade_tempo') || null,
+
+    tempoTreino: formData.get('tempo_treino') || null,
+    frequencia: formData.get('frequencia') || null,
+    tempoEstimativoTreino: formData.get('tempo_estimativo_treino') || null,
+
+    remedio: formData.get('remedio') || null,
+    doencas: formData.getAll('doenca'),
+    herniaLocal: formData.get('hernia_local') || null,
+    articularLocal: formData.get('articular_local') || null,
+
+    observacoes: formData.get('observacoes') || null,
+  };
+
+  try {
+    const response = await fetch('http://187.87.139.30:8585/api/anamnese', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
     });
 
-    // Smooth scroll para o topo após envio (opcional)
-    window.addEventListener('load', function() {
-      if (window.location.hash === '#success') {
-        successMessage.style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    });
+    if (!response.ok) {
+      const err = await response.json();
+      console.error(err);
+      alert('Erro ao enviar ficha. Tente novamente.');
+      return;
+    }
 
-    // Animação de entrada dos elementos
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+    successMessage.style.display = 'block';
+    form.reset();
 
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
+    setTimeout(() => {
+      successMessage.style.display = 'none';
+    }, 5000);
 
-    document.querySelectorAll('.section-title, .form-group').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
-    });
-  </script>
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  } catch (error) {
+    console.error(error);
+    alert('Erro de conexão com o servidor.');
+  }
+});
+</script>
 </body>
 </html>
